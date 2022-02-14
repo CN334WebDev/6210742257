@@ -7,3 +7,5 @@
 - cmd => php artisan optimize
 - config/cors.php add => 'allowed_origins' => ['http://localhost:3000/']
 - cmd => php artisan optimize
+
+every time before running : **php artisan optimize**
