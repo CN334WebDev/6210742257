@@ -2,7 +2,7 @@
 - *laravel_backend* folder is only for learning and test laravel backend.
 - *react_frontend* folder is only for learning and test react frontend.
 
-### Please focus on Final Folder
+### Please focus on <ins>Final</ins> Folder
 ...
 ### Tables of database
 
