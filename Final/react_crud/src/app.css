@@ -19,6 +19,10 @@
 
 .card-container {
   color: white;
+  position: "absolute";
+  left: "50%";
+  top: "50%";
+  transform: "translate(-50%, -50%)";
 }
 
 .cardbody-container {
@@ -32,4 +36,19 @@
   padding: 0.1rem;
   padding-inline: 0.5rem;
   font-weight: 400;
+}
+
+#device-icon {
+  height: 20px;
+  margin-bottom: 0.3rem;
+  margin-inline: 0.1rem;
+}
+.action-btn {
+  padding: 2px;
+  background: #50585f;
+  border-radius: 10px;
+}
+
+.btn {
+  padding-left: 0px;
 }
