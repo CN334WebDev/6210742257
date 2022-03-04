@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <div className="footer-container">
       <p class="fs-6 fw-light text-center fst-italic">
-        Portfolio-Projects © 2022
+        © 2022 Copyright: Portfolio-Projects
       </p>
     </div>
   );
