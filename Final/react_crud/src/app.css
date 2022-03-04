@@ -10,32 +10,32 @@
 .rectangle {
   display: inline-block;
   max-width: 100%;
-  width: 1200px;
+  width: 1400px;
   max-height: 100%;
-  height: 450px;
+  height: 420px;
   background: white;
-  border-radius: 10px;
 }
 
 .card-container {
   color: white;
-  position: "absolute";
-  left: "50%";
-  top: "50%";
-  transform: "translate(-50%, -50%)";
+  width: 98%;
+  margin-top: 1%;
+  margin-right: 2%;
 }
 
 .cardbody-container {
   background: #31363b;
+  width: 100%;
+  height: 100%;
 }
 
 .device-container {
   background: #212529;
   color: #606a74;
-  border-radius: 20px;
   padding: 0.1rem;
   padding-inline: 0.5rem;
   font-weight: 400;
+  border-radius: 20px;
 }
 
 #device-icon {
@@ -43,12 +43,15 @@
   margin-bottom: 0.3rem;
   margin-inline: 0.1rem;
 }
-.action-btn {
-  padding: 2px;
-  background: #50585f;
-  border-radius: 10px;
-}
 
 .btn {
-  padding-left: 0px;
+  height: 55px;
+  width: 70px;
+}
+
+.action-btn {
+  background: #50585f;
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
 }
