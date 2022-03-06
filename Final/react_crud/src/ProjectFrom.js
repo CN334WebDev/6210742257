@@ -13,7 +13,7 @@ const ProjectFrom = () => {
   return (
     <div>
       <Form className="form">
-        <Row lassName="mb-3">
+        <Row className="mb-3">
           <Form.Group as={Col} controlId="name">
             <Form.Label>Name</Form.Label>
             <Form.Control
@@ -35,7 +35,7 @@ const ProjectFrom = () => {
           </Form.Group>
         </Row>
 
-        <Row lassName="mb-3">
+        <Row className="mb-3">
           <Form.Group as={Col} controlId="framework">
             <Form.Label>Framework</Form.Label>
 
@@ -59,7 +59,7 @@ const ProjectFrom = () => {
           </Form.Group>
         </Row>
 
-        <Row lassName="mb-3">
+        <Row className="mb-3">
           {" "}
           <Form.Group as={Col} controlId="project_url">
             <Form.Label>Project URL</Form.Label>
@@ -83,7 +83,7 @@ const ProjectFrom = () => {
           </Form.Group>
         </Row>
 
-        <Row lassName="mb-3">
+        <Row className="mb-3">
           {" "}
           <Form.Group as={Col} controlId="demo_url">
             <Form.Label>Demo URL</Form.Label>
@@ -113,7 +113,7 @@ const ProjectFrom = () => {
           <Form.Control
             style={fields}
             as="textarea"
-            Cols={3}
+            row={3}
             placeholder="Project description"
             class="form"
           />

@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import "./app.css";
+import "./SofwareProject.css";
 
 // imported components
 import Menubar from "./Menubar";
 import Footer from "./Footer";
-import Home from "./Home";
+import SofwareProject from "./SofwareProject";
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Menubar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<SofwareProject />} />
         </Routes>
         <Footer />
       </BrowserRouter>

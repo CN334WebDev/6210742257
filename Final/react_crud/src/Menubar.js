@@ -18,15 +18,15 @@ const Menubar = () => {
           <Nav className="me-auto"></Nav>
           {"|||||"}
           <Nav>
-            <Nav.Link as={Link} eventKey={1} to="/history">
+            <Nav.Link as={Link} eventKey={1} to="/">
               <small class="text-uppercase-end fs-6 fw-light">HISTORY</small>
             </Nav.Link>
             {"|||||"}
-            <Nav.Link as={Link} eventKey={2} to="/projects">
+            <Nav.Link as={Link} eventKey={2} to="/">
               <small class="text-uppercase fs-6 fw-light">PROJECTS</small>
             </Nav.Link>
             {"|||||"}
-            <Nav.Link as={Link} eventKey={3} to="/skills">
+            <Nav.Link as={Link} eventKey={3} to="/">
               <small class="text-uppercase fs-6 fw-light">SKILLS</small>
             </Nav.Link>
           </Nav>
