@@ -118,6 +118,10 @@ const ProjectFrom = () => {
             class="form"
           />
         </Form.Group>
+
+        <button class="btn-create-sub" role="button">
+          Submit
+        </button>
       </Form>
     </div>
   );
