@@ -1,6 +1,6 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
-import { Col, Row, Button } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 const fields = {
   color: "white",
@@ -119,7 +119,7 @@ const ProjectFrom = () => {
           />
         </Form.Group>
 
-        <button class="btn-create-sub" role="button">
+        <button class="btn-create-sub" type="submit" role="button">
           Submit
         </button>
       </Form>
