@@ -10,19 +10,28 @@
 
 .rectangle {
   /* display: inline-block; */
-  max-width: 100%;
-  width: 1600px;
-  max-height: 100%;
-  height: 600px; /*420*/
+  width: 100%;
+  height: 650px; /*420*/
   background: white;
   color: black;
   text-align: center;
   padding: 1rem;
 }
 
+.mockup_url {
+  width: 50%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.description {
+  margin-top: 3%;
+}
+
 .card-container {
   color: white;
-  width: 98%;
   margin-top: 1rem;
   margin-right: 2%;
   margin-bottom: 5.5rem;
@@ -30,8 +39,6 @@
 
 .cardbody-container {
   background: #31363b;
-  width: 100%;
-  height: 100%;
 }
 
 .device-container {
@@ -47,10 +54,6 @@
   height: 20px;
   margin-bottom: 0.3rem;
   margin-inline: 0.1rem;
-}
-
-.card-footer {
-  background: red;
 }
 
 /* create button */

@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import "./SofwareProject.css";
+import "./app.css";
 
 // imported components
 import Menubar from "./Menubar";
 import Footer from "./Footer";
-import SofwareProject from "./SofwareProject";
+import SofwareProject from "./components/software_projects/SofwareProject";
 
 function App() {
   return (
