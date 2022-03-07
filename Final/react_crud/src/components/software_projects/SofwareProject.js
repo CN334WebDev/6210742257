@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
-  Carousel,
   Card,
   Image,
   Button,
   Accordion,
   useAccordionButton,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 // import components
-import ProjectFrom from "./ProjectFrom";
+import Create from "./Create";
+import Edit from "./Edit";
 
 const setingIcon = "https://img.icons8.com/color/48/ffffff/gear.png";
 const githubIcon = "https://img.icons8.com/glyph-neue/128/000000/github.png";
@@ -47,6 +46,7 @@ function EditToggle({ children, eventKey }) {
 
 const SofwareProject = () => {
   const [projects, setProjects] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getAllProjects();
@@ -60,15 +60,40 @@ const SofwareProject = () => {
 
   const deleteProject = async (id) => {
     await axios.delete(`${endpoint}/software-project/${id}`);
+    navigate("/delete-success");
     getAllProjects();
   };
 
   return (
     <div className="card-container">
+      <Card
+        bg="dark"
+        style={{
+          width: "100%",
+          marginLeft: "1%",
+          marginTop: "1rem",
+          padding: "0.5rem",
+          paddingLeft: "18px",
+          paddingRight: "18px",
+        }}
+      >
+        <Accordion defaultActiveKey="0">
+          {/* -------------------create button------------------- */}
+          <CreateToggle eventKey="1">Create</CreateToggle>{" "}
+          <Accordion.Collapse eventKey="1">
+            <Card.Body>
+              {/* -------------------form------------------- */}
+              <Create />
+            </Card.Body>
+          </Accordion.Collapse>
+        </Accordion>
+      </Card>
+
       {projects.map((project) => (
         <Card
           bg="dark"
           style={{ width: "100%", marginLeft: "1%", marginTop: "1rem" }}
+          key={project.id}
         >
           <Card.Header>
             <Accordion defaultActiveKey="0">
@@ -84,7 +109,7 @@ const SofwareProject = () => {
               <Accordion.Collapse eventKey="1">
                 <Card.Body>
                   {/* -------------------form------------------- */}
-                  <ProjectFrom />
+                  <Create />
                 </Card.Body>
               </Accordion.Collapse>
             </Accordion>
@@ -176,7 +201,7 @@ const SofwareProject = () => {
               <EditToggle eventKey="1">Edit</EditToggle>{" "}
               <Accordion.Collapse eventKey="1">
                 <Card.Body>
-                  <ProjectFrom />
+                  <Edit id={project.id} />
                 </Card.Body>
               </Accordion.Collapse>
             </Accordion>

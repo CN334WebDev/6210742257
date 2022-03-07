@@ -8,6 +8,10 @@
   width: 100%;
 }
 
+.menubar {
+  position: fixed;
+}
+
 .rectangle {
   /* display: inline-block; */
   width: 100%;

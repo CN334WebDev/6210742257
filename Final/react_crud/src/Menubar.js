@@ -4,7 +4,14 @@ import { Link } from "react-router-dom";
 
 const Menubar = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      bg="dark"
+      variant="dark"
+      className="menubar"
+      sticky="top"
+    >
       <Container>
         <Navbar.Brand as={Link} to="/">
           <small class="text-uppercase fs-6 fw-lighter">CRUD</small>{" "}

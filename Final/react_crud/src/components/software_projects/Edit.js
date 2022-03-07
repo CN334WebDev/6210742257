@@ -1,6 +1,10 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { Col, Row } from "react-bootstrap";
+
+const endpoint = "http://localhost:8000/api/software-project/";
 
 const fields = {
   color: "white",
@@ -9,10 +13,56 @@ const fields = {
   marginBottom: "0.3rem",
 };
 
-const ProjectFrom = () => {
+const Edit = (props) => {
+  const [name, setName] = useState("");
+  const [language, setLanguage] = useState("");
+  const [framework, setFramework] = useState("");
+  const [tool, setTool] = useState("");
+  const [project_url, setProjectUrl] = useState("");
+  const [mockup_url, setMockupUrl] = useState("");
+  const [demo_url, setDemoUrl] = useState("");
+  const [date, setDate] = useState("");
+  const [description, setDescription] = useState("");
+
+  const navigate = useNavigate();
+  const id = props.id;
+
+  const update = async (e) => {
+    e.preventDefault();
+    await axios.put(`${endpoint}${id}`, {
+      name: name,
+      language: language,
+      framework: framework,
+      tool: tool,
+      project_url: project_url,
+      mockup_url: mockup_url,
+      demo_url: demo_url,
+      date: date,
+      description: description,
+    });
+    navigate("/edit-success");
+  };
+
+  useEffect(() => {
+    const getProjectById = async () => {
+      const response = await axios.get(`${endpoint}${id}`);
+      setName(response.data.name);
+      setLanguage(response.data.language);
+      setFramework(response.data.framework);
+      setTool(response.data.tool);
+      setProjectUrl(response.data.project_url);
+      setMockupUrl(response.data.mockup_url);
+      setDemoUrl(response.data.demo_url);
+      setDate(response.data.date);
+      setDescription(response.data.description);
+    };
+    getProjectById();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div>
-      <Form className="form">
+      <Form className="form" onSubmit={update}>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="name">
             <Form.Label>Name</Form.Label>
@@ -20,7 +70,8 @@ const ProjectFrom = () => {
               style={fields}
               type="text"
               placeholder="Project Name"
-              className="form"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
           </Form.Group>
 
@@ -30,7 +81,8 @@ const ProjectFrom = () => {
               style={fields}
               type="text"
               placeholder="Programming Language"
-              className="form"
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
             />
           </Form.Group>
         </Row>
@@ -38,12 +90,12 @@ const ProjectFrom = () => {
         <Row className="mb-3">
           <Form.Group as={Col} controlId="framework">
             <Form.Label>Framework</Form.Label>
-
             <Form.Control
               style={fields}
               type="text"
               placeholder="Framework"
-              className="form"
+              value={framework}
+              onChange={(e) => setFramework(e.target.value)}
             />
           </Form.Group>
 
@@ -54,7 +106,8 @@ const ProjectFrom = () => {
               style={fields}
               type="text"
               placeholder="Editor Development"
-              className="form"
+              value={tool}
+              onChange={(e) => setTool(e.target.value)}
             />
           </Form.Group>
         </Row>
@@ -63,22 +116,22 @@ const ProjectFrom = () => {
           {" "}
           <Form.Group as={Col} controlId="project_url">
             <Form.Label>Project URL</Form.Label>
-
             <Form.Control
               style={fields}
               type="text"
               placeholder="Project URL"
-              className="form"
+              value={project_url}
+              onChange={(e) => setProjectUrl(e.target.value)}
             />
           </Form.Group>
           <Form.Group as={Col} controlId="mockup_url">
             <Form.Label>Mockup URL</Form.Label>
-
             <Form.Control
               style={fields}
               type="text"
               placeholder="Mockup URL"
-              className="form"
+              value={mockup_url}
+              onChange={(e) => setMockupUrl(e.target.value)}
             />
           </Form.Group>
         </Row>
@@ -87,35 +140,35 @@ const ProjectFrom = () => {
           {" "}
           <Form.Group as={Col} controlId="demo_url">
             <Form.Label>Demo URL</Form.Label>
-
             <Form.Control
               style={fields}
               type="text"
               placeholder="Demo URL"
-              className="form"
+              value={demo_url}
+              onChange={(e) => setDemoUrl(e.target.value)}
             />
           </Form.Group>
           <Form.Group as={Col} controlId="date">
             <Form.Label>Project Date</Form.Label>
-
             <Form.Control
               style={fields}
               type="text"
               placeholder="dd/mm/yyyy"
-              className="form"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
             />
           </Form.Group>
         </Row>
 
         <Form.Group as={Col} controlId="description">
           <Form.Label>Description</Form.Label>
-
           <Form.Control
             style={fields}
             as="textarea"
             row={3}
             placeholder="Project description"
-            class="form"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
           />
         </Form.Group>
 
@@ -127,4 +180,4 @@ const ProjectFrom = () => {
   );
 };
 
-export default ProjectFrom;
+export default Edit;
